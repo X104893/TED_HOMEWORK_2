@@ -6,6 +6,7 @@ This is a command line application to match applicants with qualifying loans.
 Example:
     $ python app.py
 """
+import csv
 import sys
 import fire
 import questionary
@@ -23,7 +24,6 @@ from qualifier.filters.credit_score import filter_credit_score
 from qualifier.filters.debt_to_income import filter_debt_to_income
 from qualifier.filters.loan_to_value import filter_loan_to_value
 
-
 def load_bank_data():
     """Ask for the file path to the latest banking data and load the CSV file.
 
@@ -38,6 +38,8 @@ def load_bank_data():
 
     return load_csv(csvpath)
 
+print("__________________________")
+print(load_bank_data)
 
 def get_applicant_info():
     """Prompt dialog to get the applicant's financial information.
@@ -59,6 +61,7 @@ def get_applicant_info():
     home_value = float(home_value)
 
     return credit_score, debt, income, loan_amount, home_value
+
 
 
 def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_value):
@@ -102,6 +105,9 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     return bank_data_filtered
 
 
+banks_loans =[]
+
+
 def save_qualifying_loans(qualifying_loans):
     """Saves the qualifying loans to a CSV file.
 
@@ -110,6 +116,35 @@ def save_qualifying_loans(qualifying_loans):
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
     # YOUR CODE HERE!
+    if not qualifying_loans:
+        sys.exit("No loans avaliable at this time")
+
+    sav_file = questionary.confirm(" Would you like to save the loans you qualify for").ask()
+    
+    if qualifying_loans:
+        banks_loans.append(qualifying_loans)
+    
+    print(banks_loans)
+
+    #if qualifying_loans:
+        #csvpath = Path("qualifying_loans")
+        #save_csv(Path(csvpath),qualifying_loans)
+    #with open(csvpath, "w") as csvfile:
+        #csvwriter = csv.writer(csvfile, delimiter=",")
+        #csvwriter.writerow(qualifying_loans)
+        #for item in qualifying_loans:
+            #csvwriter.writerow(item.values())
+    
+    
+
+
+
+
+
+    
+
+
+
 
 
 def run():
@@ -128,7 +163,6 @@ def run():
 
     # Save qualifying loans
     save_qualifying_loans(qualifying_loans)
-
 
 if __name__ == "__main__":
     fire.Fire(run)
