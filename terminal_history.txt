@@ -1,0 +1,50 @@
+  632  cd ..
+  633  pwd
+  634  cd onedrive
+  635  ls
+  636  cd desktop
+  637  ls
+  638  cd "C:\Users\todid\OneDrive\Desktop\loan_qualifier_app"
+  639  ls
+  640  git init
+  641  git commit
+  642  git add README.md
+  643  git status
+  644  git add app.py
+  645  git add data/
+  646  git add qualifier/
+  647  git status
+  648  git commit -m "added README APP>PY DATA and qualifier file"
+  649  git status
+  650  git remote add origin https://github.com/X104893/TED_HOMEWORK_2.git
+  651  git push -u origin main
+  652  git push -u origin main
+  653  git config --global  user.email todideas@gmail
+  654  git push -u origin main
+  655  git clone https://github.com/X104893/TED_HOMEWORK_2.git
+  656  git remote add origin https://github.com/X104893/TED_HOMEWORK_2.git
+  657  git push -u origin main
+  658  git branch -M main
+  659  git push -u origin main
+  660  git status
+  661  git push
+  662  git pull
+  663  get status
+  664  git status
+  665  git push
+  666  get status
+  667  pwd
+  668  ls
+  669  git status
+  670  git push origin main
+  671  git pull origin main
+  672  get push orgin main
+  673  git push origin main
+  674  git pull
+  675  git status
+  676  git status
+  677  git add -A
+  678  git commit -m "Testing push"
+  679  ls
+  680  pwd
+  681  history 50 > terminal_history.txt
